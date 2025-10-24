@@ -1,0 +1,25 @@
+<h2> Cadastrar Tarefa</h2>
+
+<form (ngSubmit)="adicionar()">
+  <label>
+    Título:
+    <input [(ngModel)]="novaTarefa.titulo" name="titulo" placeholder="Ex: Estudar Angular" />
+  </label>
+  <br />
+  <label>
+    Prazo:
+    <input type="date" [(ngModel)]="novaTarefa.prazo" name="prazo" />
+  </label>
+  <br />
+  <button type="submit">Cadastrar</button>
+</form>
+
+@if (novaTarefa.titulo && novaTarefa.prazo) {
+  <p>Pronto para cadastrar: <strong>{{ novaTarefa.titulo }}</strong></p>
+} @else {
+  <p>Preencha o título e prazo.</p>
+}
+
+<nav>
+  <a routerLink="/ListarTarefas"> Ver Lista de Tarefas</a>
+</nav>

@@ -1,0 +1,21 @@
+<h2> Lista de Tarefas</h2>
+
+<p>Total: {{ total }} | Concluídas: {{ concluidas }} | Pendentes: {{ pendentes }}</p>
+
+<ul>
+  @for (tarefa of tarefas; track $index) {
+    <li [class.concluida]="tarefa.concluida">
+      <strong>{{ tarefa.titulo }}</strong> — prazo: {{ tarefa.prazo }}
+      <button class="remover" (click)="remover($index)">Remover</button>
+      @if (!tarefa.concluida) {
+        <button class="concluir" (click)="concluir($index)">Concluir</button>
+      }
+    </li>
+  } @empty {
+    <li>Nenhuma tarefa cadastrada.</li>
+  }
+</ul>
+
+<nav>
+  <a routerLink="/CadastrarTarefa"> Cadastrar Nova</a>
+</nav>
